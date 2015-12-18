@@ -18,7 +18,7 @@ class Raindrop { //declaring all fileds contained within Raindrop Class
   }
   void reset() {
     loc.y=0;
-    vel.set(0, 15);
+    vel.set(0, 10);
   }
   boolean isInContactWith(PVector mouse) {  
     float d = dist(loc.x, loc.y, mouse.x, mouse.y);
