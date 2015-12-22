@@ -1,4 +1,4 @@
-class Raindrop { //declaring all fileds contained within Raindrop Class
+class Raindrop { //declaring all fields contained within Raindrop Class
   PVector loc, vel, grav;
   int diam;
   Raindrop(float x, float y) {
