@@ -1,3 +1,4 @@
+
 int count = 150;
 PVector mouse;   //declare a P
 ArrayList <Raindrop> raindrops = new ArrayList();
@@ -11,6 +12,7 @@ Catcher c;
 void setup() {
   size(800, 800);
   mouse = new PVector();                //initialize mouse PVector. value is irrelevant since it will be set at the start of void draw(){}
+  imageMode(CENTER);
   c = new Catcher();
   raindrops.add(new Raindrop(random(width), 0));
   //for (int i = 0; i < count; i++) {
