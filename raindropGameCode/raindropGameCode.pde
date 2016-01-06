@@ -11,7 +11,7 @@ Catcher c;
 
 
 void setup() {
-  size(1000,800);
+  size(1000, 800);
   gameover = 1;
   imageMode(CENTER);
   mouse = new PVector();                //initialize mouse PVector. value is irrelevant since it will be set at the start of void draw(){}
@@ -28,11 +28,11 @@ void draw() {
     println(raindrops.size());
     mouse.set(mouseX, mouseY);             //set value of mouse as mouseX,mouseY
     background(0, 200, 255);
+    textSize(100);
+    text(score, width/2, height/4);
     raindrops.add(new Raindrop(random(width), 0));
     c.update();
     c.display();
-    textSize(100);
-    text(score,width/2,height/4);
     for (int i = raindrops.size()-1; i >= 0; i--) {
       Raindrop r = raindrops.get(i);
       r.display();
@@ -41,12 +41,12 @@ void draw() {
         println("kill");
         raindrops.remove(i);
       }
-     if(r.loc.y > height + r.diam/2){
-       r.reset();
-       score = score + 1;
-     }
+      if (r.loc.y > height + r.diam/2) {
+        r.reset();
+        score = score + 1;
+      }
     }
-    if (score == 51){
+    if (score == 51) {
       gameover = 0;
       textSize(200);
       fill(#FF0808);
@@ -66,7 +66,7 @@ void draw() {
   //   r[i].reset();                           //if it does, reset the raindrop
   // }
   //}
-  if(mousePressed){
+  if (mousePressed) {
     raindrops.clear();
     gameover = 1; 
     fill(255);
