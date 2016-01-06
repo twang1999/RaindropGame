@@ -1,7 +1,7 @@
-int score = 0;
+int score = 0;    //declare variables
 int count = 150;
 int gameover;
-PVector mouse;   //declare a P
+PVector mouse;   
 ArrayList <Raindrop> raindrops = new ArrayList();
 //Raindrop [] r = new Raindrop [count];      //declare a new Raindrop called r
 Catcher c;
@@ -10,34 +10,31 @@ Catcher c;
 // You can start out by just using the single Raindrop as you test
 
 
-void setup() {
+void setup() {  //initialize varialbes
   size(1000, 800);
   gameover = 1;
-  imageMode(CENTER);
+  imageMode(CENTER);  //center the image/text
   mouse = new PVector();                //initialize mouse PVector. value is irrelevant since it will be set at the start of void draw(){}
   imageMode(CENTER);
   c = new Catcher();
   raindrops.add(new Raindrop(random(width), 0));
-  //for (int i = 0; i < count; i++) {
-  //  r[i] = new Raindrop(random(width), random(-height,0));
-  //Initialize r. The parameters used are the initial x and y positions
 }
 
 void draw() {
-  if (gameover == 1) {
+  if (gameover == 1) {    //if game is running
     println(raindrops.size());
     mouse.set(mouseX, mouseY);             //set value of mouse as mouseX,mouseY
-    background(0, 200, 255);
-    textSize(100);
+    background(0, 200, 255);  
+    textSize(100);    //score displays on screen
     text(score, width/2, height/4);
-    raindrops.add(new Raindrop(random(width), 0));
+    raindrops.add(new Raindrop(random(width), 0)); 
     c.update();
     c.display();
-    for (int i = raindrops.size()-1; i >= 0; i--) {
+    for (int i = raindrops.size()-1; i >= 0; i--) {  //array for raindrops
       Raindrop r = raindrops.get(i);
       r.display();
       r.fall();
-      if (r.isInContactWith(mouse)) {
+      if (r.isInContactWith(mouse)) {  //remove raindrop/ghost when in contact with mouse
         println("kill");
         raindrops.remove(i);
       }
@@ -46,8 +43,10 @@ void draw() {
         score = score + 1;
       }
     }
-    if (score == 51) {
+    if (score == 51) {  //gameover when score is 51
       gameover = 0;
+    }
+    if (gameover == 0){    //text GAME OVER on screen when game is over
       textSize(200);
       fill(#FF0808);
       textSize(150);
@@ -55,18 +54,7 @@ void draw() {
       text("GAME OVER", width/2, height/2);
     }
   }
-
-  //for (int i = 0; i <count; i++) {
-  // r[i].fall();         //make the raindrop fall. It should accelerate as if pulled towards the ground by earth's gravity
-  // r[i].display();      //display the raindrop
-  // if (r[i].isInContactWith(mouse)) {      //check to see if the raindrop is in contact with the point represented by the PVector called mouse
-  //   r[i].reset();                         //if it is, reset the raindrop
-  // }
-  // if (r[i].loc.y > height + r[i].diam/2) {     //check to see if the raindrop goes below the bottom of the screen
-  //   r[i].reset();                           //if it does, reset the raindrop
-  // }
-  //}
-  if (mousePressed) {
+  if (mousePressed) {      //freeze screen when game is over so ghosts and catcher remain still
     raindrops.clear();
     gameover = 1; 
     fill(255);
