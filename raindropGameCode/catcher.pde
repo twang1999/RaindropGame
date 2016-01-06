@@ -1,20 +1,18 @@
-class Catcher {
+class Catcher {    //declare new catcher
   PVector loc;  
   PImage pacman; 
   //int diam;
-  Catcher() {
+  Catcher() {    //initiatize catcher variable
     loc = new PVector();
     //  diam = cdiam;
     pacman = loadImage("pacman.png");
   }
 
-  void display() {  //load pacman image
-    //fill(#6F27AA);
-    //ellipse(loc.x,loc.y,diam,diam);
+  void display() {  //display catcher field
     noTint();
     image(pacman, loc.x, loc.y, 80, 80);
   }
-  void update() {
+  void update() {  //mouse is with catcher 
     loc.set(mouseX, mouseY);
   }
 }

@@ -51,7 +51,7 @@ void draw() {
       fill(#FF0808);
       textSize(150);
       textAlign(CENTER);
-      text("GAME OVER", width/2, height/2);
+      text("GAME OVER CLICK TO PLAY AGAIN", width/2, height/2);
     }
   }
   if (mousePressed) {      //freeze screen when game is over so ghosts and catcher remain still
