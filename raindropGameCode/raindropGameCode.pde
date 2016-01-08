@@ -22,7 +22,6 @@ void setup() {  //initialize varialbes
 
 void draw() {
   if (gameover == 1) {    //if game is running
-    println(raindrops.size());
     mouse.set(mouseX, mouseY);             //set value of mouse as mouseX,mouseY
     background(0, 200, 255);  
     textSize(100);    //score displays on screen
@@ -35,7 +34,6 @@ void draw() {
       r.display();
       r.fall();
       if (r.isInContactWith(mouse)) {  //remove raindrop/ghost when in contact with mouse
-        println("kill");
         raindrops.remove(i);
       }
       if (r.loc.y > height + r.diam/2) {
@@ -46,13 +44,13 @@ void draw() {
     if (score == 51) {  //gameover when score is 51
       gameover = 0;
     }
+  }
     if (gameover == 0){    //text GAME OVER on screen when game is over
       textSize(200);
       fill(#FF0808);
       textSize(150);
       textAlign(CENTER);
       text("GAME OVER CLICK TO PLAY AGAIN", width/2, height/2);
-    }
   }
   if (mousePressed) {      //freeze screen when game is over so ghosts and catcher remain still
     raindrops.clear();
